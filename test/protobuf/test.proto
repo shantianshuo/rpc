@@ -1,0 +1,59 @@
+syntax = "proto3";//声明了protobuf版本
+option cc_generic_services = true; // 表示生成service服务类和rpc方法描述。
+package fixbug;//声明了代码所在的包（C++来说是namespace）
+// message代表从消息的基类继承
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+//登录请求消息类型
+message LoginRequest 
+{
+    bytes name = 1; //或者直接用bytes类型，protobuf会转化的。
+    bytes pwd = 2;
+    // 映射表类型
+    map<int32,string> test = 3;
+}
+
+//登录请求消息类型
+message LoginResponse 
+{
+    ResultCode result = 1;
+    bool success = 2;
+}
+
+message GetFriendListsRequest
+{
+    ResultCode result = 1;
+    uint32 userid = 2;
+}
+
+message User
+{
+    bytes name = 1;
+    uint32 age = 2;
+    enum Sex
+    {
+        MAN = 0;
+        WOMAN = 1;
+    }
+    Sex sex = 3;
+}
+
+message GetFriendListsResponse // 返回好友列表
+{
+    ResultCode result = 1;
+    //关键字repeated，列表类型。
+    repeated User friend_list = 2;
+}
+// 怎么定义描述rpc方法的类型呢 - service
+// service代表从服务的基类继承
+// 生成UserServiceRpc 和 UserServiceRpc_stub类，前者是rpc服务的提供端，后者是rpc服务的消费者。
+service UserServiceRpc
+{
+    // 参数是响应类，返回值是回应类。
+    rpc Lonin(LoginRequest) returns(LoginResponse); 
+    rpc GetFriendLists(GetFriendListsRequest) returns(GetFriendListsResponse);
+}

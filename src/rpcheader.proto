@@ -1,0 +1,14 @@
+/*
+用于provicer和consumer的序列化和反序列化的协议
+*/
+syntax = "proto3";
+// 生成文件的命名空间的名称
+package mprpc;
+
+message RpcHeader
+{
+    // 生成的类中，获取变量方法为service_name() 设置方法为：set_service_name(...);
+    bytes service_name = 1;
+    bytes method_name = 2;
+    uint32 args_size = 3;
+}

@@ -1,0 +1,12 @@
+17:46:40 =>[error] ddddd
+17:48:58 =>[info] servicename: FiendServiceRpc
+17:48:58 =>[info] methodname: GetFriendsList
+17:48:58 =>[info] RpcProvider start service at ip: 127.0.0.1 port: 8000
+17:49:6 =>[info] servicename: FiendServiceRpc
+17:49:6 =>[info] methodname: GetFriendsList
+17:49:6 =>[info] RpcProvider start service at ip: 127.0.0.1 port: 8000
+17:49:44 =>[info] servicename: FiendServiceRpc
+17:49:44 =>[info] methodname: GetFriendsList
+17:49:44 =>[info] RpcProvider start service at ip: 127.0.0.1 port: 8000
+18:0:7 =>[info] servicename: FiendServiceRpc
+18:0:7 =>[info] methodname: GetFriendsList
